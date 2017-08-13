@@ -1,9 +1,9 @@
-FROM python:3
+FROM alpine:latest
 
-RUN mkdir ~/setup
-run mkdir ~/src
-COPY requirements.pip ~/setup
+RUN apk update && apk upgrade
+RUN apk add --upgrade python
+RUN apk add --upgrade py-pip
+ADD requirements.pip /etc
 
+RUN mkdir ~/src
 WORKDIR ~/src
-
-RUN pip install --no-cache-dir -r requirements.pip
