@@ -1,1 +1,2 @@
-docker build . -t python-env:latest
+#!/bin/sh
+docker build . -t python-env:latest --build-arg HTTP_PROXY=http://proxy:8080

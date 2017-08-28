@@ -1,1 +1,2 @@
-docker run -ti python-env
+#!/bin/sh
+docker run -ti -v $(pwd)/exercises:/tuto python-env
