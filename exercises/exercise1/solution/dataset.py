@@ -1,11 +1,14 @@
 import random
-def split(dataset, splitRatio):
+def split(dataset, splitRatio, seed=None):
+	random.seed(seed)
 	trainSize = int(len(dataset) * splitRatio)
 	trainSet = []
 	copy = list(dataset)
 	while len(trainSet) < trainSize:
 		index = random.randrange(len(copy))
 		trainSet.append(copy.pop(index))
+
+
 	return trainSet, copy
 
 def separateByClass(dataset):

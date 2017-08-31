@@ -1,0 +1,4 @@
+test_path=/tuto/exercise$1/src/test.py
+cmd="python "$test_path
+echo $cmd
+$cmd

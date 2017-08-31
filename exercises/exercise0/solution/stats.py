@@ -1,6 +1,8 @@
 import math
 
 def mean(numbers):
+	if (len(numbers) == 0):
+		raise ValueError("Can't compute mean on size 0 arrays")
 	return sum(numbers)/float(len(numbers))
 
 def stdev(numbers):
@@ -8,9 +10,11 @@ def stdev(numbers):
 	variance = sum([pow(x-avg,2) for x in numbers])/float(len(numbers)-1)
 	return math.sqrt(variance)
 
+'''
+Calculate mean and stdev for all the columns in the provided
+'''
 def summarize(dataset):
 	summaries = [(mean(attribute), stdev(attribute)) for attribute in zip(*dataset)]
-	del summaries[-1]
 	return summaries
 
 '''

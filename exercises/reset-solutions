@@ -1,0 +1,4 @@
+exercise_path=/tuto/exercise
+cp /tuto/exercise0/solution/stats.py /tuto/exercise2/solution/utils
+cp /tuto/exercise1/solution/ml.py /tuto/exercise2/solution/utils
+cp /tuto/exercise1/solution/dataset.py /tuto/exercise2/solution/utils
