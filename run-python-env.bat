@@ -1,1 +1,1 @@
-docker run --rm -ti -v %cd%/exercises:/tuto python-env
+docker run --rm -ti -v %cd%\exercises:/tuto python-env
