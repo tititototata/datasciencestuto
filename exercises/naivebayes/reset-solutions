@@ -1,0 +1,4 @@
+
+cp ./exercise0/solution/stats.py ./exercise2/solution/utils
+cp ./exercise1/solution/ml.py ./exercise2/solution/utils
+cp ./exercise1/solution/dataset.py ./exercise2/solution/utils
