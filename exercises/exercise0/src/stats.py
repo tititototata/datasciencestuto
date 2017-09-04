@@ -14,10 +14,14 @@ def stdev(numbers):
 
 '''
 Calculate mean and stdev for all the columns in the provided
+return a list of tuples
+[(mean(att1), stdev(att1)), (mean(att2), stdev(att2)), ...]
+
+Use the zip(*dataset) built-in projection function.
+
 '''
 def summarize(dataset):
-	summaries = [(mean(attribute), stdev(attribute)) for attribute in zip(*dataset)]
-	return summaries
+	raise NotImplementedError('summarize method not implemented')
 
 '''
 Gaussian probabilty density for x knowing the data distribution (mean and stddev)

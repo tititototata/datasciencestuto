@@ -12,9 +12,22 @@ def stdev(numbers):
 
 '''
 Calculate mean and stdev for all the columns in the provided
+return a list of tuples
+[(mean(att1), stdev(att1)), (mean(att2), stdev(att2)), ...]
+
+Use the zip(*dataset) built-in projection function.
+
 '''
 def summarize(dataset):
+	summaries = []
+	columns = zip(*dataset)
+	for col in columns:
+		summaries.append((mean(col), stdev(col)))
+
+	''' Could be simply written using 'zip' projection function
 	summaries = [(mean(attribute), stdev(attribute)) for attribute in zip(*dataset)]
+	'''
+
 	return summaries
 
 '''
