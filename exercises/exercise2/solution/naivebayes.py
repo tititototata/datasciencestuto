@@ -18,7 +18,7 @@ class NaiveBayes():
 	def _calculateClassProbabilities(self, summaries, inputVector):
 		probabilities = {}
 		for classValue, classSummaries in summaries.iteritems():
-			probabilities[classValue] = 1
+			probabilities[classValue] = 1 # equiprobability for each class value
 			for i in range(len(classSummaries)):
 				mean, stdev = classSummaries[i]
 				x = inputVector[i]
