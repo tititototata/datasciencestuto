@@ -1,44 +1,31 @@
 import unittest
-from naivebayes_continuous import NaiveBayes
-from utils.files import loadCsv
-from utils.dataset import split
-from utils.ml import getAccuracy
-class naivebayes_diabete_test(unittest.TestCase):
+from stats import mean, stdev, summarize_continuous, gaussianProbability
 
-    def bayes_model_continuous_test(self, split_ratio, seed, expected_accuracy):
-        filename = '/tuto/data/diabete.csv'
-        model = NaiveBayes()
-    	header, dataset = loadCsv(filename)
-    	trainingSet, testSet = split(dataset, split_ratio, seed)
-    	model.fit(trainingSet)
-    	predictions = model.getPredictions(testSet)
-    	accuracy = getAccuracy(testSet, predictions)
-        self.assertEqual(accuracy, expected_accuracy)
+class test_stats(unittest.TestCase):
+    def test_mean(self):
+        numbers = [1,2,3,4,5]
+        self.assertEqual(mean(numbers), 3.0)
 
-    '''
-    Test data: /tuto/data.diabete.csv
-    Random seed: 1
-    training size: 0.67%
-    '''
-    def test_seed_1_train_67(self):
-        self.bayes_model_continuous_test(0.67, 1, 0.7165354330708661)
+    def test_mean_size_0(self):
+        numbers = []
+        with self.assertRaises(ValueError):
+             mean(numbers)
 
-    '''
-    Test data: /tuto/data.diabete.csv
-    Random seed: 11
-    training size: 0.67%
-    '''
-    def test_seed_11_train_67(self):
-        self.bayes_model_continuous_test(0.67, 11, 0.7401574803149606)
+    def test_stdev(self):
+        numbers = [1,2,3,4,5]
+        self.assertTrue((stdev(numbers) - 1.58113883008) <= 0.00001 )
 
-    '''
-    Test data: /tuto/data.diabete.csv
-    Random seed: 111
-    training size: 0.67%
-    '''
-    def test_seed_111_train_67(self):
-        self.bayes_model_continuous_test(0.67, 111, 0.7677165354330708)
+    def test_summarize_continuous(self):
+        dataset = [[1,20], [2,21], [3,22]]
+        summary = summarize_continuous(dataset)
+        self.assertEqual(summary[0][0], 2.0)
+        self.assertEqual(summary[0][1], 1.0)
+        self.assertEqual(summary[1][0], 21.0)
+        self.assertEqual(summary[1][1], 1.0)
 
+    def test_calculateProbability(self):
+        proba = gaussianProbability(71.5, 73, 6.2)
+        self.assertTrue((proba - 0.0624896575937) < 0.0000001)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,5 @@
-
-cp ./exercise0/solution/stats.py ./exercise3/solution/utils
-cp ./exercise1/solution/ml.py ./exercise3/solution/utils
-cp ./exercise1/solution/dataset.py ./exercise3/solution/utils
+cp ./exercise3/solution/stats.py ./exercise4/solution/utils
+cp ./exercise1/solution/ml.py ./exercise2/solution/utils
+cp ./exercise1/solution/dataset.py ./exercise2/solution/utils
+cp ./exercise1/solution/ml.py ./exercise4/solution/utils
+cp ./exercise1/solution/dataset.py ./exercise4/solution/utils

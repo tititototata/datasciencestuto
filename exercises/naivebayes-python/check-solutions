@@ -1,4 +1,5 @@
-python ./exercise0/solution/test.py;
-python ./exercise1/solution/test.py;
+dirs=$(ls -d exercise*)
 
-python ./exercise3/solution/test.py;
+for dir in $dirs; do
+  python ./$dir/solution/test.py;
+done
