@@ -7,6 +7,6 @@ def split(dataset, splitRatio):
 	raise NotImplementedError('split method not implemented')
 
 '''
-
+'''
 def separateByClass(dataset):
 	raise NotImplementedError('separateByclass method not implemented')

@@ -10,7 +10,10 @@ class NaiveBayes():
 	def fit(self, training_data):
 		raise NotImplementedError('fit() method not implemented')
 
-	''' return a vector of predictions: [0, 0, 0, 1, ...]
+	'''
+	Model 'aplication' method for a naive bayes classifier working on COTINUOUS columns
+	only.
+	returns a vector of predictions: [0, 0, 0, 1, ...]
 	Assume equiprobability for each target value (Don't compute real P(C=c_i) and
 	just use P(C=c_0) = P(C=c_1) = ... = 1 '''
 	def getPredictions(self, dataset):

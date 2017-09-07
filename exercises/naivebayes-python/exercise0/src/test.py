@@ -1,5 +1,5 @@
 import unittest
-from stats import mean, stdev, summarize, gaussianProbability
+from stats import mean, stdev, summarize_continuous, gaussianProbability
 
 class test_stats(unittest.TestCase):
     def test_mean(self):
@@ -10,9 +10,9 @@ class test_stats(unittest.TestCase):
         numbers = [1,2,3,4,5]
         self.assertTrue((stdev(numbers) - 1.58113883008) <= 0.00001 )
 
-    def test_summarize(self):
+    def test_summarize_continuous(self):
         dataset = [[1,20], [2,21], [3,22]]
-        summary = summarize(dataset)
+        summary = summarize_continuous(dataset)
         self.assertEqual(summary[0][0], 2.0)
         self.assertEqual(summary[0][1], 1.0)
         self.assertEqual(summary[1][0], 21.0)

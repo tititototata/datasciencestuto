@@ -1,6 +1,6 @@
 from utils.files import loadCsv
 from utils.dataset import split, separateByClass
-from utils.stats import summarize, gaussianProbability
+from utils.stats import summarize_continuous, gaussianProbability
 from utils.ml import getAccuracy
 import random
 
@@ -10,13 +10,14 @@ class NaiveBayes():
 		separated = separateByClass(dataset)
 		summaries = {}
 		for classValue, instances in separated.iteritems():
-			summary = summarize(instances);
+			summary = summarize_continuous(instances);
 			del summary[-1]
 			summaries[classValue] = summary
 		return summaries
 
 	def _calculateClassProbabilities(self, summaries, inputVector):
 		probabilities = {}
+		inputVector = [float(i) for i in inputVector]
 		for classValue, classSummaries in summaries.iteritems():
 			probabilities[classValue] = 1 # equiprobability for each class value
 			for i in range(len(classSummaries)):

@@ -20,7 +20,7 @@ return a list of tuples
 Use the zip(*dataset) built-in projection function.
 
 '''
-def summarize(dataset):
+def summarize_continuous(dataset):
 	raise NotImplementedError('summarize method not implemented')
 
 '''

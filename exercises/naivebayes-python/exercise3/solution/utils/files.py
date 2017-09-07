@@ -1,7 +1,7 @@
 import csv
 
-def loadCsv(filename, delimiter=';'):
-	lines = csv.reader(open(filename, "rb"), delimiter=delimiter)
+def loadCsv(filename):
+	lines = csv.reader(open(filename, "rb"), delimiter=';')
 	header = next(lines)
 	dataset = list(lines)
 	for i in range(len(dataset)):
